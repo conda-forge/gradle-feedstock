@@ -1,7 +1,9 @@
 #!/bin/bash
-env
 # stop on error
 set -eu -o pipefail
+
+# delete CI variable for build
+unset CI
 
 # build gradle
 ./gradlew installAll -Pgradle_installPath=/tmp/BUILD_GRADLE
