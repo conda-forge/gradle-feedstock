@@ -1,5 +1,5 @@
 #!/bin/bash
-
+env
 # stop on error
 set -eu -o pipefail
 
