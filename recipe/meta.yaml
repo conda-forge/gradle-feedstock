@@ -1,5 +1,5 @@
 {% set name = "gradle" %}
-{% set version = "6.2.0" %}
+{% set version = "6.2.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/gradle/gradle/archive/v{{ version }}.tar.gz
-  sha256: da8a3a3ce7d449d4eeadc9833414c175a25f9fccd79be23136e9cc9705f2f8e3
+  sha256: 18f158f76e47b3a5a5d929a50eb9259ac2d791ceffb2c03f8f238ff79620cf69
 
 build:
   number: 0
@@ -16,7 +16,7 @@ build:
 requirements:
   host:
     - openjdk >=11
-    
+
 test:
   requires:
     - openjdk >=11
@@ -27,7 +27,7 @@ about:
   home: https://gradle.org
   license: Apache-2.0
   license_file: LICENSE
-  summary: 'Gradle - an open-source build-automation system'
+  summary: Gradle - an open-source build-automation system
   description: |
     Gradle is an open-source build automation tool focused on flexibility and performance. Gradle build scripts are written using a Groovy or Kotlin DSL. Read about Gradle features to learn what is possible with Gradle.
   doc_url: https://docs.gradle.org/current/userguide/userguide.html
@@ -36,4 +36,4 @@ about:
 extra:
   recipe-maintainers:
     - klugem
-    
+
