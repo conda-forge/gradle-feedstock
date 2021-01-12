@@ -15,7 +15,8 @@ build:
 
 requirements:
   build:
-    - {{ compiler('gcc') }}
+    - libgcc
+    - libgcc-ng
     
   host:
     - openjdk >=11
