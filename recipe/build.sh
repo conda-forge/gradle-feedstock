@@ -5,6 +5,7 @@ set -eu -o pipefail
 # delete CI variable for build
 CI_BAK=${CI}
 unset CI
+export CONDA_OVERRIDE_GLIBC=2.17
 
 # build gradle
 ./gradlew installAll -Pgradle_installPath=/tmp/BUILD_GRADLE
