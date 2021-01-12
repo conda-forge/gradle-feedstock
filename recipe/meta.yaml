@@ -14,10 +14,6 @@ build:
   skip: true  # [win]
 
 requirements:
-  build:
-    - libgcc
-    - libgcc-ng
-    
   host:
     - openjdk >=11
 
