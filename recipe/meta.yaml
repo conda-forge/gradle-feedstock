@@ -15,7 +15,7 @@ build:
 
 requirements:
 build:
-    - {{ compiler('gcc') }}
+    - gcc
     
   host:
     - openjdk >=11
