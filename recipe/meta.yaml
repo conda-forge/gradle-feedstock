@@ -1,5 +1,5 @@
 {% set name = "gradle" %}
-{% set version = "6.8.1" %}
+{% set version = "6.8.2" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/gradle/gradle/archive/v{{ version }}.tar.gz
-  sha256: abea401ce1936e59d99382c27eb3f15194c8fbf4a22f2017cd53378e970df70a
+  sha256: fa8ec8f601cb356fde1a6091a9074603f5f2ee16cb39e6ae0a95870edf2ab995
 
 build:
   number: 0
