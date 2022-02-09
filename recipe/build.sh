@@ -7,7 +7,7 @@ CI_BAK=${CI}
 unset CI
 
 # build gradle
-./gradlew installAll -Pgradle_installPath=/tmp/BUILD_GRADLE
+./gradlew installAll -Pgradle_installPath=/tmp/BUILD_GRADLE --no-build-cache
 
 # restore variable
 CI=${CI_BAK}
