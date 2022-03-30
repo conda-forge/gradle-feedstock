@@ -1,8 +1,7 @@
-{% set name = "gradle" %}
 {% set version = "7.3.3" %}
 
 package:
-  name: {{ name }}
+  name: gradle
   version: {{ version }}
 
 source:
@@ -10,8 +9,7 @@ source:
   sha256: 66c83e84ecd521aff2a500aefec1d08ad69c7324800346f8ad726624ce30b501
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
 
 requirements:
   build:
@@ -23,8 +21,9 @@ requirements:
 test:
   requires:
     - openjdk >=11
+    - m2-grep  # [win]
   commands:
-    - gradle -v
+    - gradle -v | grep -E "{{ version.replace(".", "\.") }}"
 
 about:
   home: https://gradle.org
