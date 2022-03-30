@@ -6,7 +6,9 @@ set CI_BAK=%CI%
 set CI=
 
 :: build gradle
-./gradlew installAll -Pgradle_installPath=./tmp/BUILD_GRADLE
+./gradlew installAll -Pgradle_installPath=./tmp/BUILD_GRADLE ^
+    || ./gradlew installAll -Pgradle_installPath=./tmp/BUILD_GRADLE ^
+    || ./gradlew installAll -Pgradle_installPath=./tmp/BUILD_GRADLE
 
 :: restore variable
 set CI=%CI_BAK%
