@@ -1,21 +1,18 @@
 @echo on
 
 :: delete CI variable for build
-set CI_BAK=%CI%
-
 set CI=
 
 dir
 
-:: build gradle
-.\gradlew installAll -Pgradle_installPath=.\tmp\BUILD_GRADLE --stacktrace ^
-    || .\gradlew installAll -Pgradle_installPath=.\tmp\BUILD_GRADLE --stacktrace ^
-    || .\gradlew installAll -Pgradle_installPath=.\tmp\BUILD_GRADLE --stacktrace
+set GRADLE_ARGS="install -Pgradle_installPath=.\tmp\BUILD_GRADLE -x docs --stacktrace"
+
+:: build gradle, retrying a couple times to account for network flake
+.\gradlew %GRADLE_ARGS% ^
+    || .\gradlew %GRADLE_ARGS% ^
+    || .\gradlew %GRADLE_ARGS%
 
 dir .\tmp\BUILD_GRADLE
-
-:: restore variable
-set CI=%CI_BAK%
 
 :: create output folder name
 VERSION="%PKG_NAME%-%PKG_VERSION%"
