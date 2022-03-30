@@ -8,9 +8,9 @@ set CI=
 dir
 
 :: build gradle
-.\gradlew installAll -Pgradle_installPath=.\tmp\BUILD_GRADLE ^
-    || .\gradlew installAll -Pgradle_installPath=.\tmp\BUILD_GRADLE ^
-    || .\gradlew installAll -Pgradle_installPath=.\tmp\BUILD_GRADLE
+.\gradlew installAll -Pgradle_installPath=.\tmp\BUILD_GRADLE --stacktrace ^
+    || .\gradlew installAll -Pgradle_installPath=.\tmp\BUILD_GRADLE --info --stacktrace ^
+    || .\gradlew installAll -Pgradle_installPath=.\tmp\BUILD_GRADLE --debug --stacktrace
 
 dir .\tmp\BUILD_GRADLE
 
