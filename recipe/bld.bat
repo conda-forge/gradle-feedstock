@@ -17,3 +17,5 @@ dir %OUT%\lib
 :: create wrapper
 echo %OUT%\bin\gradle.exe %%* > %LIBRARY_BIN%\gradle.cmd
 echo IF %%ERRORLEVEL%% NEQ 0 EXIT /B %%ERRORLEVEL%% >> %LIBRARY_BIN%\gradle.cmd
+
+type %LIBRARY_BIN%\gradle.cmd

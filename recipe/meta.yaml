@@ -23,7 +23,8 @@ test:
     - openjdk >=11
     - m2-grep  # [win]
   commands:
-    - gradle -v | grep -E "{{ version.replace(".", "\.") }}"
+    - gradle -v
+    - gradle -v | grep -E "{{ version.replace(".", "\.") }}" || exit 1
 
 about:
   home: https://gradle.org
