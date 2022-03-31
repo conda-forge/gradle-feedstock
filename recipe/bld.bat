@@ -4,8 +4,8 @@
 set CI=
 
 :: create output folder
-set VERSION="%PKG_NAME%-%PKG_VERSION%"
-set OUT="%PREFIX%\share\%VERSION%"
+set VERSION=%PKG_NAME%-%PKG_VERSION%
+set OUT=%PREFIX%\share\%VERSION%
 
 :: build gradle, retrying a couple times to account for network flake
 .\gradlew install -Pgradle_installPath="%OUT%" -x docs --stacktrace
