@@ -7,18 +7,12 @@ set CI=
 set VERSION=%PKG_NAME%-%PKG_VERSION%
 set OUT=%PREFIX%\share\%VERSION%
 
-:: build gradle, retrying a couple times to account for network flake
-call .\gradlew install -Pgradle_installPath=%VERSION% -x docs --stacktrace
-:: .\gradlew install -Pgradle_installPath=%VERSION% -x docs --stacktrace
-:: .\gradlew install -Pgradle_installPath=%VERSION% -x docs --stacktrace
-
-dir %VERSION%
-
-md %PREFIX%\share
-
-copy %VERSION% %OUT%
+:: build gradle
+call .\gradlew install -Pgradle_installPath=%OUT% -x docs --stacktrace
 
 dir %OUT%
+dir %OUT%\bin
+dir %OUT%\lib
 
 :: create wrapper
 echo %OUT%\bin\gradle.exe %%* > %LIBRARY_BIN%\gradle.cmd
