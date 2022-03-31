@@ -5,7 +5,7 @@ set CI=
 
 dir
 
-set GRADLE_ARGS="install -Pgradle_installPath=.\tmp\BUILD_GRADLE -x docs --stacktrace"
+set GRADLE_ARGS=install -Pgradle_installPath=.\tmp\BUILD_GRADLE -x docs --stacktrace
 
 :: build gradle, retrying a couple times to account for network flake
 .\gradlew %GRADLE_ARGS% ^
