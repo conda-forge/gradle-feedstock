@@ -8,9 +8,9 @@ set VERSION=%PKG_NAME%-%PKG_VERSION%
 set OUT=%PREFIX%\share\%VERSION%
 
 :: build gradle, retrying a couple times to account for network flake
-.\gradlew install -Pgradle_installPath="%OUT%" -x docs --stacktrace
-.\gradlew install -Pgradle_installPath="%OUT%" -x docs --stacktrace
-.\gradlew install -Pgradle_installPath="%OUT%" -x docs --stacktrace
+.\gradlew install -Pgradle_installPath=%OUT% -x docs --stacktrace
+.\gradlew install -Pgradle_installPath=%OUT% -x docs --stacktrace
+.\gradlew install -Pgradle_installPath=%OUT% -x docs --stacktrace
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
 dir %OUT% || exit 1
