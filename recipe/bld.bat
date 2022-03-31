@@ -3,10 +3,9 @@
 :: delete CI variable for build
 set CI=
 
-:: create output folder name
-VERSION="%PKG_NAME%-%PKG_VERSION%"
-OUT="%PREFIX%\share\%VERSION%"
-md "%OUT%"
+:: create output folder
+set VERSION="%PKG_NAME%-%PKG_VERSION%"
+set OUT="%PREFIX%\share\%VERSION%"
 
 :: build gradle, retrying a couple times to account for network flake
 .\gradlew install -Pgradle_installPath="%OUT%" -x docs --stacktrace

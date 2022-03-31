@@ -5,10 +5,9 @@ set -eux -o pipefail
 # delete CI variable for build
 unset CI
 
-# create output folder name
+# create output folder
 VERSION="${PKG_NAME}-${PKG_VERSION}"
 OUT="${PREFIX}/share/${VERSION}"
-mkdir -p "${OUT}"
 
 # build gradle, retrying a couple times to account for network flake
 GRADLE_ARGS="install -Pgradle_installPath=${OUT} -x docs --stacktrace"
