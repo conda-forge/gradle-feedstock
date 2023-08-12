@@ -9,7 +9,7 @@ unset CI
 VERSION="${PKG_NAME}-${PKG_VERSION}"
 OUT="${PREFIX}/share/${VERSION}"
 
-java --version
+echo $JAVA_HOME
 # build gradle
 ./gradlew install -Pgradle_installPath=${OUT} -x docs --stacktrace --debug
 

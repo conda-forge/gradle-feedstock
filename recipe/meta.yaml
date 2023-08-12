@@ -16,7 +16,7 @@ requirements:
     - {{ compiler('c') }}
     - sysroot_linux-64 2.17  # [linux64]
   host:
-    - openjdk =8
+    - openjdk =11
 
 test:
   requires:
