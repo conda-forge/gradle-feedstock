@@ -1,4 +1,4 @@
-{% set version = "7.5.1" %}
+{% set version = "7.6.0" %}
 
 package:
   name: gradle
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/gradle/gradle/archive/v{{ version }}.tar.gz
-  sha256: 1d6b114744a3a5c13acaa02e1a63f6896c8dfb636c06d8c04e3e5d141eedbc09
+  sha256: dfd708de05faa4dfe2510d36facee473930bff6913b51a4fa4c973fdf84c1091
 
 build:
   number: 0
@@ -16,11 +16,11 @@ requirements:
     - {{ compiler('c') }}
     - sysroot_linux-64 2.17  # [linux64]
   host:
-    - openjdk >=11
+    - openjdk >=11,<20
 
 test:
   requires:
-    - openjdk >=11
+    - openjdk >=11,<20
     - m2-grep  # [win]
   commands:
     - gradle -v
