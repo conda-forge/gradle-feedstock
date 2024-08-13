@@ -23,7 +23,7 @@ requirements:
 
 test:
   requires:
-    - openjdk >=11,<23
+    - openjdk >=8,<23
   commands:
     - gradle -v
     # gradle doesn't show patch version if it's 0
