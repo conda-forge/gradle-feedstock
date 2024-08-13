@@ -10,11 +10,9 @@ source:
 
 build:
   number: 0
+  noarch: generic
 
 requirements:
-  build:
-    - {{ compiler('c') }}
-    - {{ stdlib('c') }}
   host:
     # See https://github.com/gradle/gradle/blob/v8.9.0/settings.gradle.kts#L321
     - openjdk >=11,<12
@@ -26,7 +24,6 @@ requirements:
 test:
   requires:
     - openjdk >=11,<23
-    - m2-grep  # [win]
   commands:
     - gradle -v
     # gradle doesn't show patch version if it's 0
