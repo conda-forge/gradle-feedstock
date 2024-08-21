@@ -1,4 +1,4 @@
-{% set version = "7.4.2" %}
+{% set version = "8.9.0" %}
 
 package:
   name: gradle
@@ -6,25 +6,28 @@ package:
 
 source:
   url: https://github.com/gradle/gradle/archive/v{{ version }}.tar.gz
-  sha256: 4cbfde441a8afd96a8503a120402839838e3d6bad95aed5d015e642f9c40668c
+  sha256: 9172bbdc47265e35ced086c48a56b39d52376e1e1b4417d38583b4e4b25f6d2f
 
 build:
   number: 0
+  noarch: generic
 
 requirements:
-  build:
-    - {{ compiler('c') }}
-    - sysroot_linux-64 2.17  # [linux64]
   host:
-    - openjdk >=11
+    # See https://github.com/gradle/gradle/blob/v8.9.0/settings.gradle.kts#L321
+    - openjdk >=11,<12
+  run:
+    - __unix  # [unix]
+    - __win  # [win]
+    - openjdk >=8,<23
 
 test:
   requires:
-    - openjdk >=11
-    - m2-grep  # [win]
+    - openjdk >=8,<23
   commands:
     - gradle -v
-    - gradle -v | grep -E "{{ version.replace(".", "\.") }}" || exit 1
+    # gradle doesn't show patch version if it's 0
+    - gradle -v | grep -E "{{ "\.".join(version.split(".")[:2]) }}" || exit 1
 
 about:
   home: https://gradle.org
@@ -38,4 +41,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - freundTech
     - klugem
