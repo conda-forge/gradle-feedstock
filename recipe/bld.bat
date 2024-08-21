@@ -8,7 +8,7 @@ set VERSION=%PKG_NAME%-%PKG_VERSION%
 set OUT=%PREFIX%\share\%VERSION%
 
 :: build gradle
-call .\gradlew install -Pgradle_installPath=%OUT% -x docs --stacktrace
+call .\gradlew install --project-prop gradle_installPath=%OUT% --project-prop finalRelease=true -x docs --stacktrace
 
 :: create wrapper
 echo call %OUT%\bin\gradle.bat %%* > %LIBRARY_BIN%\gradle.bat
