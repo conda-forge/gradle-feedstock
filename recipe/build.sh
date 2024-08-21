@@ -10,7 +10,7 @@ VERSION="${PKG_NAME}-${PKG_VERSION}"
 OUT="${PREFIX}/share/${VERSION}"
 
 # build gradle
-./gradlew install -Pgradle_installPath=${OUT} -x docs --stacktrace
+./gradlew install --project-prop gradle_installPath=${OUT} --project-prop finalRelease=true -x docs --stacktrace
 
 # create symlink
 ln -s "${OUT}/bin/gradle" "${PREFIX}/bin/gradle"
