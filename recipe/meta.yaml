@@ -15,7 +15,7 @@ build:
 requirements:
   host:
     # See https://github.com/gradle/gradle/blob/v8.9.0/settings.gradle.kts#L321
-    - openjdk >=11,<12
+    - openjdk >=17,<18
   run:
     - __unix  # [unix]
     - __win  # [win]
