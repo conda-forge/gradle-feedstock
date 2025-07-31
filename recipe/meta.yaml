@@ -14,16 +14,16 @@ build:
 
 requirements:
   host:
-    # See https://github.com/gradle/gradle/blob/v8.9.0/settings.gradle.kts#L321
-    - openjdk >=11,<12
+    # https://github.com/gradle/gradle/blob/v9.0.0/settings.gradle.kts#L334
+    - openjdk >=17,<18
   run:
     - __unix  # [unix]
     - __win  # [win]
-    - openjdk >=8,<23
+    - openjdk >=17,<25
 
 test:
   requires:
-    - openjdk >=8,<23
+    - openjdk >=17,<25
   commands:
     - gradle -v
     # gradle doesn't show patch version if it's 0
