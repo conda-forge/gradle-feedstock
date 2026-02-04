@@ -3,7 +3,7 @@ About gradle-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gradle-feedstock/blob/main/LICENSE.txt)
 
-Home: https://gradle.org
+Home: https://gradle.org/
 
 Package license: Apache-2.0
 
@@ -14,7 +14,6 @@ Development: https://github.com/gradle/gradle
 Documentation: https://docs.gradle.org/current/userguide/userguide.html
 
 Gradle is an open-source build automation tool focused on flexibility and performance. Gradle build scripts are written using a Groovy or Kotlin DSL. Read about Gradle features to learn what is possible with Gradle.
-
 
 Current build status
 ====================
