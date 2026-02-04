@@ -1,9 +1,11 @@
+conda_build_tool: rattler-build
+conda_install_tool: pixi
 conda_forge_output_validation: true
 github:
   branch_name: main
   tooling_branch_name: main
 conda_build:
-  pkg_format: '2'
+  error_overlinking: true
 noarch_platforms:
   - linux_64
   - win_64

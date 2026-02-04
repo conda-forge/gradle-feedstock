@@ -1,43 +1,47 @@
-{% set version = "9.2.0" %}
+schema_version: 1
+
+context:
+  version: 9.2.0
 
 package:
   name: gradle
-  version: {{ version }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/gradle/gradle/archive/v{{ version }}.tar.gz
+  url: https://github.com/gradle/gradle/archive/v${{ version }}.tar.gz
   sha256: 7f799c53637c623362866f80bdb5b5622adf96cf21fecbbcd8e3de9522605829
 
 build:
-  number: 0
+  number: 1
   noarch: generic
 
 requirements:
   host:
-    # https://github.com/gradle/gradle/blob/v9.0.0/settings.gradle.kts#L334
+    # https://github.com/gradle/gradle/blob/v9.2.0/settings.gradle.kts#L342
     - openjdk >=17,<18
   run:
-    - __unix  # [unix]
-    - __win  # [win]
+    - if: unix
+      then: __unix
+    - if: win
+      then: __win
     - openjdk >=17,<25
 
-test:
-  requires:
-    - openjdk >=17,<25
-  commands:
-    - gradle -v
-    # gradle doesn't show patch version if it's 0
-    - gradle -v | grep -E {{ "\.".join(version.split(".")[:2]) }} || exit 1
+tests:
+  - requirements:
+      run:
+        - openjdk >=17,<25
+    script:
+      - gradle -v
 
 about:
-  home: https://gradle.org
   license: Apache-2.0
   license_file: LICENSE
   summary: Gradle - an open-source build-automation system
   description: |
     Gradle is an open-source build automation tool focused on flexibility and performance. Gradle build scripts are written using a Groovy or Kotlin DSL. Read about Gradle features to learn what is possible with Gradle.
-  doc_url: https://docs.gradle.org/current/userguide/userguide.html
-  dev_url: https://github.com/gradle/gradle
+  homepage: https://gradle.org
+  repository: https://github.com/gradle/gradle
+  documentation: https://docs.gradle.org/current/userguide/userguide.html
 
 extra:
   recipe-maintainers:
