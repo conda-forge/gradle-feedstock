@@ -1,4 +1,4 @@
-{% set version = "9.2.1" %}
+{% set version = "9.3.1" %}
 
 package:
   name: gradle
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/gradle/gradle/archive/v{{ version }}.tar.gz
-  sha256: 406c83c216b27660e0a21978946e83e49eb64633873b68fcf41968e3bca31b5a
+  sha256: 50459cce74c28f86dfe4dc99c444812689bea40202984760230348e389533a27
 
 build:
   number: 0
@@ -14,16 +14,16 @@ build:
 
 requirements:
   host:
-    # https://github.com/gradle/gradle/blob/v9.0.0/settings.gradle.kts#L334
+    # https://github.com/gradle/gradle/blob/v9.3.1/settings.gradle.kts#L343
     - openjdk >=17,<18
   run:
     - __unix  # [unix]
     - __win  # [win]
-    - openjdk >=17,<25
+    - openjdk >=17,<26
 
 test:
   requires:
-    - openjdk >=17,<25
+    - openjdk >=17,<26
   commands:
     - gradle -v
     # gradle doesn't show patch version if it's 0
