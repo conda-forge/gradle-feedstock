@@ -1,4 +1,4 @@
-{% set version = "9.3.1" %}
+{% set version = "9.7.0-M2" %}
 
 package:
   name: gradle
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/gradle/gradle/archive/v{{ version }}.tar.gz
-  sha256: 50459cce74c28f86dfe4dc99c444812689bea40202984760230348e389533a27
+  sha256: 3565c51c439647335cd7779da0b9ed615bd7697212e8f65e9d2e23dbd2f3a3ee
 
 build:
   number: 0
